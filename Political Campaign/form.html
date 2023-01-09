@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Political Campaign</title>
+      <link rel="stylesheet" href="style.css"/>
+
+      <script
+          src="https://kit.fontawesome.com/64d58efce2.js"
+          crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+
+         <div class="container">
+          <span class="big-circle"></span>
+          <img src="img/shape.png" class="square" alt="" />
+          <div class="form">
+            <div class="contact-info">
+              <h3 class="title">10 FOR U & ME CAMPAIGN</h3>
+                <p class="text"> Tsari ne da zai baku damar cin moriyar kyautar 10GB Data, daga HON. ISMA'IL ALIYU ALKANAWEY, 
+                dan Takarar Majalisar Tarayya na Karamar Hukumar Gwale, Kano.</p>
+                <p class="text">ALKANAWEY NE MAFITA</p>
+                <P class="text">Ku Hanzarta Kafin a Rufe</P>
+              
+              
+                 <img src="img/candidate.jpg" class="candidate" alt="" />
+
+              <div class="info">
+                <div class="information">
+                  <img src="img/location.png" class="icon" alt="" />
+                  <p>Kabuga Aisami, Gwale L.G kano State</p>
+                </div>
+                <div class="information">
+                  <img src="img/email.png" class="icon" alt="" />
+                  <p>ismailalkanawey@gmail.com</p>
+                </div>
+                <div class="information">
+                  <img src="img/phone.png" class="icon" alt="" />
+                  <p>+201151048180</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form">
+              <span class="circle one"></span>
+              <span class="circle two"></span>
+                    <form class="gform pure-form pure-form-stacked" method="POST" data-email="politicalcampaign2023@gmail.com" action="https://script.google.com/macros/s/AKfycbwDZX2NQ8Iz4UWw9BvGrKf-IS9autSP9E6Th6oy4Gv5dGjvb7eMEcrtp4ox4pzkOiiPwg/exec">
+                      <div class="form-elements"><br>
+                        <div><br>
+                      <b class="title">Fill This Form!</b>
+                      
+                      <div class="input-container">
+                         <b>Full Name</b>
+                        <input class="input" type="text" name="NAME" required="" />
+                      </div>
+
+                      <div class="input-container">
+                        <b>Email</b>
+                        <input class="input" type="email" name="EMAIL" required="" />
+                      </div>
+
+                      <div class="input-container">
+                         <b>Phone</b>
+                         <input class="input" type="number"  name="PHONE" required="" />
+                      </div>
+
+                      <div class="input-container">
+                         <b>Local Government Area</b>
+                         <input class="input" type="text"  name="LOCAL GOVT" required="" />
+                      </div>
+
+                      <div class="input-container">
+                         <b>Polling Unit</b>
+                         <input class="input" type="text"  name="POLLING UNIT" required="" />
+                      </div>
+                  
+                      <button class="btn">
+                      send</button><br>
+                      <footer>
+                        <p class="footer-text-create">Created By AssadiQ Codes</p>
+                          <div class="footer-text">
+                            <div class="social-icons">
+                              <a href="https://wa.me/+2348160203798">
+                                <i class="fab fa-whatsapp"></i>
+                              </a>
+                              <a href="https://www.twitter.com/assadiq15494031">
+                                <i class="fab fa-twitter"></i>
+                              </a>
+                              <a href="https://facebook.com/100007317040082">
+                                <i class="fab fa-facebook"></i>
+                              </a>
+                              <a href="https://www.linkedin.com/in/abubakar-ashiru-yunusa/394745245">
+                                <i class="fab fa-linkedin-in"></i>
+                              </a>
+                            </div>
+                          </div>
+                      </footer>
+                    </div>
+                  </div>
+
+                 <!-- Thankyou_message --><br>
+                  <center>
+                    <div class="text"><br><br>
+                      <h1>Thanks for Supporting Us!</h1>
+                    </div>
+                    <br>
+                  </center>
+                </form>
+      <script data-cfasync="false" type="text/javascript">
+        
+       (function() {
+      function validEmail(email) {
+        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        return re.test(email);
+      }
+
+      function validateHuman(honeypot) {
+        if (honeypot) {
+          console.log("Robot Detected!");
+          return true;
+        } else {
+          console.log("Welcome Human!");
+        }
+      }
+      function getFormData(form) {
+        var elements = form.elements;
+
+        var fields = Object.keys(elements).filter(function(k) {
+              return (elements[k].name !== "honeypot");
+        }).map(function(k) {
+          if(elements[k].name !== undefined) {
+            return elements[k].name;
+          }else if(elements[k].length > 0){
+            return elements[k].item(0).name;
+          }
+        }).filter(function(item, pos, self) {
+          return self.indexOf(item) == pos && item;
+        });
+
+        var formData = {};
+        fields.forEach(function(name){
+          var element = elements[name];
+          formData[name] = element.value;
+          if (element.length) {
+            var data = [];
+            for (var i = 0; i < element.length; i++) {
+              var item = element.item(i);
+              if (item.checked || item.selected) {
+                data.push(item.value);
+              }
+            }
+            formData[name] = data.join(', ');
+          }
+        });
+
+        // add form-specific values into the data
+        formData.formDataNameOrder = JSON.stringify(fields);
+        formData.formGoogleSheetName = form.dataset.sheet || "Sheet1"; // default sheet name
+        formData.formGoogleSendEmail = form.dataset.email || ""; // no email by default
+
+        console.log(formData);
+        return formData;
+      }
+
+      function handleFormSubmit(event) {  
+        event.preventDefault();           
+        var form = event.target;
+        var data = getFormData(form);         
+        if( data.email && !validEmail(data.email) ) {   
+          var invalidEmail = form.querySelector(".email-invalid");
+          if (invalidEmail) {
+            invalidEmail.style.display = "block";
+            return false;
+          }
+        } else {
+          disableAllButtons(form);
+          var url = form.action;
+          var xhr = new XMLHttpRequest();
+          xhr.open('POST', url);
+          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          xhr.onreadystatechange = function() {
+              console.log(xhr.status, xhr.statusText);
+              console.log(xhr.responseText);
+              var formElements = form.querySelector(".form-elements")
+              if (formElements) {
+                formElements.style.display = "none"; // hide form
+              }
+              var thankYouMessage = form.querySelector(".text");
+              if (thankYouMessage) {
+                thankYouMessage.style.display = "block";
+              }
+              return;
+               
+          };
+          var encoded = Object.keys(data).map(function(k) {
+              return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+          }).join('&');
+          xhr.send(encoded);
+        }
+      }
+      
+      function loaded() {
+        console.log("Contact form submission handler loaded successfully.");
+        var forms = document.querySelectorAll("form.gform");
+        for (var i = 0; i < forms.length; i++) {
+          forms[i].addEventListener("submit", handleFormSubmit, false);
+        }
+      };
+      document.addEventListener("DOMContentLoaded", loaded, false);
+
+      function disableAllButtons(form) {
+        var buttons = form.querySelectorAll("button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].disabled = true;
+        }
+      }
+    })();
+
+
+      </script>
+    </center>
+    </body>
+</html>
